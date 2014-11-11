@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SE_DatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SE_DatabaseModelStoreContainer">
+          <EntitySet Name="Permissions" EntityType="SE_DatabaseModel.Store.Permissions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Products" EntityType="SE_DatabaseModel.Store.Products" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RolePermissions" EntityType="SE_DatabaseModel.Store.RolePermissions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Roles" EntityType="SE_DatabaseModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Towns" EntityType="SE_DatabaseModel.Store.Towns" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserRoles" EntityType="SE_DatabaseModel.Store.UserRoles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="SE_DatabaseModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Products_Users" Association="SE_DatabaseModel.Store.FK_Products_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolePermissions_Permissions" Association="SE_DatabaseModel.Store.FK_RolePermissions_Permissions">
+            <End Role="Permissions" EntitySet="Permissions" />
+            <End Role="RolePermissions" EntitySet="RolePermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolePermissions_Roles" Association="SE_DatabaseModel.Store.FK_RolePermissions_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="RolePermissions" EntitySet="RolePermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRoles_Roles" Association="SE_DatabaseModel.Store.FK_UserRoles_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="UserRoles" EntitySet="UserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRoles_Users" Association="SE_DatabaseModel.Store.FK_UserRoles_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserRoles" EntitySet="UserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Towns" Association="SE_DatabaseModel.Store.FK_Users_Towns">
+            <End Role="Towns" EntitySet="Towns" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Permissions">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PermissionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PermissionName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="PermissionDescription" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Product Name" />
+          </Key>
+          <Property Name="Product Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="[Product Description" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Nullable="false" />
+          <Property Name="Image" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RolePermissions">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="PermissionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Role Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Towns">
+          <Key>
+            <PropertyRef Name="Town ID" />
+          </Key>
+          <Property Name="Town ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Town Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserRoles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="Username" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Address" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="UserRoleID" Type="int" Nullable="false" />
+          <Property Name="TownID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Products_Users">
+          <End Role="Users" Type="SE_DatabaseModel.Store.Users" Multiplicity="1" />
+          <End Role="Products" Type="SE_DatabaseModel.Store.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolePermissions_Permissions">
+          <End Role="Permissions" Type="SE_DatabaseModel.Store.Permissions" Multiplicity="1" />
+          <End Role="RolePermissions" Type="SE_DatabaseModel.Store.RolePermissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permissions">
+              <PropertyRef Name="PermissionID" />
+            </Principal>
+            <Dependent Role="RolePermissions">
+              <PropertyRef Name="PermissionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolePermissions_Roles">
+          <End Role="Roles" Type="SE_DatabaseModel.Store.Roles" Multiplicity="1" />
+          <End Role="RolePermissions" Type="SE_DatabaseModel.Store.RolePermissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="RolePermissions">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRoles_Roles">
+          <End Role="Roles" Type="SE_DatabaseModel.Store.Roles" Multiplicity="1" />
+          <End Role="UserRoles" Type="SE_DatabaseModel.Store.UserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="UserRoles">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRoles_Users">
+          <End Role="Users" Type="SE_DatabaseModel.Store.Users" Multiplicity="1" />
+          <End Role="UserRoles" Type="SE_DatabaseModel.Store.UserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="UserRoles">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Towns">
+          <End Role="Towns" Type="SE_DatabaseModel.Store.Towns" Multiplicity="1" />
+          <End Role="Users" Type="SE_DatabaseModel.Store.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towns">
+              <PropertyRef Name="Town ID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="TownID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SE_DatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SE_DatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Permissions" EntityType="SE_DatabaseModel.Permission" />
+          <EntitySet Name="Products" EntityType="SE_DatabaseModel.Product" />
+          <EntitySet Name="Roles" EntityType="SE_DatabaseModel.Role" />
+          <EntitySet Name="Towns" EntityType="SE_DatabaseModel.Town" />
+          <EntitySet Name="Users" EntityType="SE_DatabaseModel.User" />
+          <AssociationSet Name="FK_Products_Users" Association="SE_DatabaseModel.FK_Products_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Towns" Association="SE_DatabaseModel.FK_Users_Towns">
+            <End Role="Towns" EntitySet="Towns" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="RolePermissions" Association="SE_DatabaseModel.RolePermissions">
+            <End Role="Permissions" EntitySet="Permissions" />
+            <End Role="Roles" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="UserRoles" Association="SE_DatabaseModel.UserRoles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PermissionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PermissionName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PermissionDescription" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Roles" Relationship="SE_DatabaseModel.RolePermissions" FromRole="Permissions" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Product_Name" />
+          </Key>
+          <Property Name="Product_Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="C_Product_Description" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Image" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="User" Relationship="SE_DatabaseModel.FK_Products_Users" FromRole="Products" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role_Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Permissions" Relationship="SE_DatabaseModel.RolePermissions" FromRole="Roles" ToRole="Permissions" />
+          <NavigationProperty Name="Users" Relationship="SE_DatabaseModel.UserRoles" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Town">
+          <Key>
+            <PropertyRef Name="Town_ID" />
+          </Key>
+          <Property Name="Town_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Town_Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Users" Relationship="SE_DatabaseModel.FK_Users_Towns" FromRole="Towns" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="UserRoleID" Type="Int32" Nullable="false" />
+          <Property Name="TownID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="SE_DatabaseModel.FK_Products_Users" FromRole="Users" ToRole="Products" />
+          <NavigationProperty Name="Town" Relationship="SE_DatabaseModel.FK_Users_Towns" FromRole="Users" ToRole="Towns" />
+          <NavigationProperty Name="Roles" Relationship="SE_DatabaseModel.UserRoles" FromRole="Users" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK_Products_Users">
+          <End Role="Users" Type="SE_DatabaseModel.User" Multiplicity="1" />
+          <End Role="Products" Type="SE_DatabaseModel.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Towns">
+          <End Role="Towns" Type="SE_DatabaseModel.Town" Multiplicity="1" />
+          <End Role="Users" Type="SE_DatabaseModel.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towns">
+              <PropertyRef Name="Town_ID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="TownID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RolePermissions">
+          <End Role="Permissions" Type="SE_DatabaseModel.Permission" Multiplicity="*" />
+          <End Role="Roles" Type="SE_DatabaseModel.Role" Multiplicity="*" />
+        </Association>
+        <Association Name="UserRoles">
+          <End Role="Roles" Type="SE_DatabaseModel.Role" Multiplicity="*" />
+          <End Role="Users" Type="SE_DatabaseModel.User" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SE_DatabaseModelStoreContainer" CdmEntityContainer="SE_DatabaseEntities">
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="SE_DatabaseModel.Permission">
+              <MappingFragment StoreEntitySet="Permissions">
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+                <ScalarProperty Name="PermissionDescription" ColumnName="PermissionDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="SE_DatabaseModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Product_Name" ColumnName="Product Name" />
+                <ScalarProperty Name="C_Product_Description" ColumnName="[Product Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="SE_DatabaseModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Role_Name" ColumnName="Role Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Towns">
+            <EntityTypeMapping TypeName="SE_DatabaseModel.Town">
+              <MappingFragment StoreEntitySet="Towns">
+                <ScalarProperty Name="Town_ID" ColumnName="Town ID" />
+                <ScalarProperty Name="Town_Name" ColumnName="Town Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SE_DatabaseModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="TownID" ColumnName="TownID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="RolePermissions" TypeName="SE_DatabaseModel.RolePermissions" StoreEntitySet="RolePermissions">
+            <EndProperty Name="Permissions">
+              <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+            </EndProperty>
+            <EndProperty Name="Roles">
+              <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="UserRoles" TypeName="SE_DatabaseModel.UserRoles" StoreEntitySet="UserRoles">
+            <EndProperty Name="Roles">
+              <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="UserName" ColumnName="Username" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="TradersDB">
+        <EntityTypeShape EntityType="SE_DatabaseModel.Permission" Width="1.5" PointX="0.75" PointY="1.625" Height="1.7879850260416668" IsExpanded="true" />
+        <EntityTypeShape EntityType="SE_DatabaseModel.Product" Width="1.5" PointX="7.5" PointY="1.5" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SE_DatabaseModel.Role" Width="1.5" PointX="3" PointY="1.625" Height="1.7879850260416657" IsExpanded="true" />
+        <EntityTypeShape EntityType="SE_DatabaseModel.Town" Width="1.5" PointX="3" PointY="5.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SE_DatabaseModel.User" Width="1.5" PointX="5.25" PointY="1" Height="3.1340950520833331" IsExpanded="true" />
+        <AssociationConnector Association="SE_DatabaseModel.FK_Products_Users" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="2.5862939453125" />
+          <ConnectorPoint PointX="7.5" PointY="2.5862939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="SE_DatabaseModel.FK_Users_Towns" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="6.547841796875" />
+          <ConnectorPoint PointX="6" PointY="6.547841796875" />
+          <ConnectorPoint PointX="6" PointY="4.1340950520833335" />
+        </AssociationConnector>
+        <AssociationConnector Association="SE_DatabaseModel.RolePermissions" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.5189925130208328" />
+          <ConnectorPoint PointX="3" PointY="2.5189925130208328" />
+        </AssociationConnector>
+        <AssociationConnector Association="SE_DatabaseModel.UserRoles" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.5189925130208328" />
+          <ConnectorPoint PointX="5.25" PointY="2.5189925130208328" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
