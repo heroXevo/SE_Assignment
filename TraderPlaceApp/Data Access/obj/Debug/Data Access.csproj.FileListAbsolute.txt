@@ -1,0 +1,7 @@
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Data Access\bin\Debug\Data Access.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Data Access\bin\Debug\Data Access.pdb
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Data Access\bin\Debug\Common.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Data Access\bin\Debug\Common.pdb
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Data Access\obj\Debug\Data Access.csprojResolveAssemblyReference.cache
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Data Access\obj\Debug\Data Access.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Data Access\obj\Debug\Data Access.pdb

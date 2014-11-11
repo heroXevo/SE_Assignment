@@ -1,0 +1,6 @@
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Common\bin\Debug\Common.dll.config
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Common\bin\Debug\Common.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Common\bin\Debug\Common.pdb
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Common\obj\Debug\Common.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Common\obj\Debug\Common.pdb
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

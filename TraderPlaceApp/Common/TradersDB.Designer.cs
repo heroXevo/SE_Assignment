@@ -19,10 +19,10 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("SE_DatabaseModel", "FK_Products_Users", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Common.User), "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.Product), true)]
-[assembly: EdmRelationshipAttribute("SE_DatabaseModel", "FK_Users_Towns", "Towns", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Common.Town), "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.User), true)]
 [assembly: EdmRelationshipAttribute("SE_DatabaseModel", "RolePermissions", "Permissions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.Permission), "Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.Role))]
-[assembly: EdmRelationshipAttribute("SE_DatabaseModel", "UserRoles", "Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.Role), "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.User))]
+[assembly: EdmRelationshipAttribute("SE_DatabaseModel", "FK_Products_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Common.User), "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.Product), true)]
+[assembly: EdmRelationshipAttribute("SE_DatabaseModel", "FK_Users_Towns", "Town", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Common.Town), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.User), true)]
+[assembly: EdmRelationshipAttribute("SE_DatabaseModel", "UserRoles", "Role", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.Role), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.User))]
 
 #endregion
 
@@ -508,16 +508,16 @@ namespace Common
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SE_DatabaseModel", "FK_Products_Users", "Users")]
+        [EdmRelationshipNavigationPropertyAttribute("SE_DatabaseModel", "FK_Products_Users", "User")]
         public User User
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("SE_DatabaseModel.FK_Products_Users", "Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("SE_DatabaseModel.FK_Products_Users", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("SE_DatabaseModel.FK_Products_Users", "Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("SE_DatabaseModel.FK_Products_Users", "User").Value = value;
             }
         }
         /// <summary>
@@ -529,13 +529,13 @@ namespace Common
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("SE_DatabaseModel.FK_Products_Users", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("SE_DatabaseModel.FK_Products_Users", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("SE_DatabaseModel.FK_Products_Users", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("SE_DatabaseModel.FK_Products_Users", "User", value);
                 }
             }
         }
@@ -655,18 +655,18 @@ namespace Common
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SE_DatabaseModel", "UserRoles", "Users")]
+        [EdmRelationshipNavigationPropertyAttribute("SE_DatabaseModel", "UserRoles", "User")]
         public EntityCollection<User> Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("SE_DatabaseModel.UserRoles", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("SE_DatabaseModel.UserRoles", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("SE_DatabaseModel.UserRoles", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("SE_DatabaseModel.UserRoles", "User", value);
                 }
             }
         }
@@ -764,18 +764,18 @@ namespace Common
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SE_DatabaseModel", "FK_Users_Towns", "Users")]
+        [EdmRelationshipNavigationPropertyAttribute("SE_DatabaseModel", "FK_Users_Towns", "User")]
         public EntityCollection<User> Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("SE_DatabaseModel.FK_Users_Towns", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("SE_DatabaseModel.FK_Users_Towns", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("SE_DatabaseModel.FK_Users_Towns", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("SE_DatabaseModel.FK_Users_Towns", "User", value);
                 }
             }
         }
@@ -803,9 +803,8 @@ namespace Common
         /// <param name="surname">Initial value of the Surname property.</param>
         /// <param name="age">Initial value of the Age property.</param>
         /// <param name="address">Initial value of the Address property.</param>
-        /// <param name="userRoleID">Initial value of the UserRoleID property.</param>
         /// <param name="townID">Initial value of the TownID property.</param>
-        public static User CreateUser(global::System.String userName, global::System.String password, global::System.String name, global::System.String surname, global::System.Int32 age, global::System.String address, global::System.Int32 userRoleID, global::System.Int32 townID)
+        public static User CreateUser(global::System.String userName, global::System.String password, global::System.String name, global::System.String surname, global::System.Int32 age, global::System.String address, global::System.Int32 townID)
         {
             User user = new User();
             user.UserName = userName;
@@ -814,7 +813,6 @@ namespace Common
             user.Surname = surname;
             user.Age = age;
             user.Address = address;
-            user.UserRoleID = userRoleID;
             user.TownID = townID;
             return user;
         }
@@ -975,30 +973,6 @@ namespace Common
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 UserRoleID
-        {
-            get
-            {
-                return _UserRoleID;
-            }
-            set
-            {
-                OnUserRoleIDChanging(value);
-                ReportPropertyChanging("UserRoleID");
-                _UserRoleID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("UserRoleID");
-                OnUserRoleIDChanged();
-            }
-        }
-        private global::System.Int32 _UserRoleID;
-        partial void OnUserRoleIDChanging(global::System.Int32 value);
-        partial void OnUserRoleIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.Int32 TownID
         {
             get
@@ -1029,18 +1003,18 @@ namespace Common
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SE_DatabaseModel", "FK_Products_Users", "Products")]
+        [EdmRelationshipNavigationPropertyAttribute("SE_DatabaseModel", "FK_Products_Users", "Product")]
         public EntityCollection<Product> Products
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Product>("SE_DatabaseModel.FK_Products_Users", "Products");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Product>("SE_DatabaseModel.FK_Products_Users", "Product");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Product>("SE_DatabaseModel.FK_Products_Users", "Products", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Product>("SE_DatabaseModel.FK_Products_Users", "Product", value);
                 }
             }
         }
@@ -1051,16 +1025,16 @@ namespace Common
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SE_DatabaseModel", "FK_Users_Towns", "Towns")]
+        [EdmRelationshipNavigationPropertyAttribute("SE_DatabaseModel", "FK_Users_Towns", "Town")]
         public Town Town
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Town>("SE_DatabaseModel.FK_Users_Towns", "Towns").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Town>("SE_DatabaseModel.FK_Users_Towns", "Town").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Town>("SE_DatabaseModel.FK_Users_Towns", "Towns").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Town>("SE_DatabaseModel.FK_Users_Towns", "Town").Value = value;
             }
         }
         /// <summary>
@@ -1072,13 +1046,13 @@ namespace Common
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Town>("SE_DatabaseModel.FK_Users_Towns", "Towns");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Town>("SE_DatabaseModel.FK_Users_Towns", "Town");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Town>("SE_DatabaseModel.FK_Users_Towns", "Towns", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Town>("SE_DatabaseModel.FK_Users_Towns", "Town", value);
                 }
             }
         }
@@ -1089,18 +1063,18 @@ namespace Common
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SE_DatabaseModel", "UserRoles", "Roles")]
+        [EdmRelationshipNavigationPropertyAttribute("SE_DatabaseModel", "UserRoles", "Role")]
         public EntityCollection<Role> Roles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Role>("SE_DatabaseModel.UserRoles", "Roles");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Role>("SE_DatabaseModel.UserRoles", "Role");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Role>("SE_DatabaseModel.UserRoles", "Roles", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Role>("SE_DatabaseModel.UserRoles", "Role", value);
                 }
             }
         }
