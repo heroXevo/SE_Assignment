@@ -1,0 +1,8 @@
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\bin\Debug\TraderPlaceApp.Tests.dll.config
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\bin\Debug\TraderPlaceApp.Tests.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\bin\Debug\TraderPlaceApp.Tests.pdb
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\bin\Debug\TraderPlaceApp.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\bin\Debug\TraderPlaceApp.pdb
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\obj\Debug\TraderPlaceApp.Tests.csprojResolveAssemblyReference.cache
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\obj\Debug\TraderPlaceApp.Tests.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\obj\Debug\TraderPlaceApp.Tests.pdb

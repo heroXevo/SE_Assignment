@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraderPlaceApp", "TraderPlaceApp\TraderPlaceApp.csproj", "{04492E52-2C50-4BA6-9943-966927AF7477}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraderPlaceApp.Tests", "TraderPlaceApp.Tests\TraderPlaceApp.Tests.csproj", "{1A2ED755-AC39-483B-A181-F64109F7B174}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04492E52-2C50-4BA6-9943-966927AF7477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04492E52-2C50-4BA6-9943-966927AF7477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04492E52-2C50-4BA6-9943-966927AF7477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04492E52-2C50-4BA6-9943-966927AF7477}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A2ED755-AC39-483B-A181-F64109F7B174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A2ED755-AC39-483B-A181-F64109F7B174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A2ED755-AC39-483B-A181-F64109F7B174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A2ED755-AC39-483B-A181-F64109F7B174}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

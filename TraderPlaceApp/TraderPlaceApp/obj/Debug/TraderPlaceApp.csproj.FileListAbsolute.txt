@@ -1,0 +1,4 @@
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp\bin\TraderPlaceApp.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp\bin\TraderPlaceApp.pdb
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp\obj\Debug\TraderPlaceApp.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp\obj\Debug\TraderPlaceApp.pdb
