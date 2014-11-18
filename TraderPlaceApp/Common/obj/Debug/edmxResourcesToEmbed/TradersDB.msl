@@ -10,17 +10,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="SE_DatabaseModel.Product">
-        <MappingFragment StoreEntitySet="Products">
-          <ScalarProperty Name="Product_Name" ColumnName="Product Name" />
-          <ScalarProperty Name="C_Product_Description" ColumnName="[Product Description" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Roles">
       <EntityTypeMapping TypeName="SE_DatabaseModel.Role">
         <MappingFragment StoreEntitySet="Roles">
@@ -66,5 +55,17 @@
         <ScalarProperty Name="RoleID" ColumnName="RoleID" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="SE_DatabaseModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="C_Product_Description" ColumnName="[Product Description" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product Name" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

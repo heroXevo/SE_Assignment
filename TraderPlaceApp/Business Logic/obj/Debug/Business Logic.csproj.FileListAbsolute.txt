@@ -2,3 +2,8 @@ C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Business Logic\bin\Debug\B
 C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Business Logic\bin\Debug\Business Logic.pdb
 C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Business Logic\obj\Debug\Business Logic.dll
 C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Business Logic\obj\Debug\Business Logic.pdb
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Business Logic\obj\Debug\Business Logic.csprojResolveAssemblyReference.cache
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Business Logic\bin\Debug\Common.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Business Logic\bin\Debug\Data Access.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Business Logic\bin\Debug\Common.pdb
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Business Logic\bin\Debug\Data Access.pdb

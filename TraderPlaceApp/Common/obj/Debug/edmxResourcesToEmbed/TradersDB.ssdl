@@ -43,8 +43,9 @@
   </EntityType>
   <EntityType Name="Products">
     <Key>
-      <PropertyRef Name="Product Name" />
+      <PropertyRef Name="ProductID" />
     </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Product Name" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="[Product Description" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Price" Type="decimal" Nullable="false" />

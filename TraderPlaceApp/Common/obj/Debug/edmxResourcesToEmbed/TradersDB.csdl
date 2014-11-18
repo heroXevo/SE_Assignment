@@ -2,7 +2,6 @@
 <Schema Namespace="SE_DatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityContainer Name="SE_DatabaseEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Permissions" EntityType="SE_DatabaseModel.Permission" />
-    <EntitySet Name="Products" EntityType="SE_DatabaseModel.Product" />
     <EntitySet Name="Roles" EntityType="SE_DatabaseModel.Role" />
     <EntitySet Name="Towns" EntityType="SE_DatabaseModel.Town" />
     <AssociationSet Name="RolePermissions" Association="SE_DatabaseModel.RolePermissions">
@@ -10,10 +9,6 @@
       <End Role="Roles" EntitySet="Roles" />
     </AssociationSet>
     <EntitySet Name="Users" EntityType="SE_DatabaseModel.User" />
-    <AssociationSet Name="FK_Products_Users" Association="SE_DatabaseModel.FK_Products_Users">
-      <End Role="User" EntitySet="Users" />
-      <End Role="Product" EntitySet="Products" />
-    </AssociationSet>
     <AssociationSet Name="FK_Users_Towns" Association="SE_DatabaseModel.FK_Users_Towns">
       <End Role="Town" EntitySet="Towns" />
       <End Role="User" EntitySet="Users" />
@@ -21,6 +16,11 @@
     <AssociationSet Name="UserRoles" Association="SE_DatabaseModel.UserRoles">
       <End Role="Role" EntitySet="Roles" />
       <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="Products" EntityType="SE_DatabaseModel.Product" />
+    <AssociationSet Name="FK_Products_Users" Association="SE_DatabaseModel.FK_Products_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Product" EntitySet="Products" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Permission">
@@ -31,17 +31,6 @@
     <Property Name="PermissionName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="PermissionDescription" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Roles" Relationship="SE_DatabaseModel.RolePermissions" FromRole="Permissions" ToRole="Roles" />
-  </EntityType>
-  <EntityType Name="Product">
-    <Key>
-      <PropertyRef Name="Product_Name" />
-    </Key>
-    <Property Name="Product_Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="C_Product_Description" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="Image" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <NavigationProperty Name="User" Relationship="SE_DatabaseModel.FK_Products_Users" FromRole="Product" ToRole="User" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
@@ -75,22 +64,10 @@
     <Property Type="Int32" Name="Age" Nullable="false" />
     <Property Type="String" Name="Address" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
     <Property Type="Int32" Name="TownID" Nullable="false" />
-    <NavigationProperty Name="Products" Relationship="SE_DatabaseModel.FK_Products_Users" FromRole="User" ToRole="Product" />
     <NavigationProperty Name="Town" Relationship="SE_DatabaseModel.FK_Users_Towns" FromRole="User" ToRole="Town" />
     <NavigationProperty Name="Roles" Relationship="SE_DatabaseModel.UserRoles" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="Products" Relationship="SE_DatabaseModel.FK_Products_Users" FromRole="User" ToRole="Product" />
   </EntityType>
-  <Association Name="FK_Products_Users">
-    <End Type="SE_DatabaseModel.User" Role="User" Multiplicity="1" />
-    <End Type="SE_DatabaseModel.Product" Role="Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserName" />
-      </Principal>
-      <Dependent Role="Product">
-        <PropertyRef Name="UserName" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Users_Towns">
     <End Type="SE_DatabaseModel.Town" Role="Town" Multiplicity="1" />
     <End Type="SE_DatabaseModel.User" Role="User" Multiplicity="*" />
@@ -106,5 +83,29 @@
   <Association Name="UserRoles">
     <End Type="SE_DatabaseModel.Role" Role="Role" Multiplicity="*" />
     <End Type="SE_DatabaseModel.User" Role="User" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Type="Int32" Name="ProductID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Product_Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="C_Product_Description" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="Image" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="User" Relationship="SE_DatabaseModel.FK_Products_Users" FromRole="Product" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Products_Users">
+    <End Type="SE_DatabaseModel.User" Role="User" Multiplicity="1" />
+    <End Type="SE_DatabaseModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="UserName" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

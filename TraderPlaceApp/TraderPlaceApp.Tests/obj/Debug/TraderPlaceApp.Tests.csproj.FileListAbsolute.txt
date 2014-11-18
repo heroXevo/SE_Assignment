@@ -6,3 +6,9 @@ C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\bin\D
 C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\obj\Debug\TraderPlaceApp.Tests.csprojResolveAssemblyReference.cache
 C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\obj\Debug\TraderPlaceApp.Tests.dll
 C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\obj\Debug\TraderPlaceApp.Tests.pdb
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\bin\Debug\Business Logic.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\bin\Debug\Common.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\bin\Debug\Data Access.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\bin\Debug\Business Logic.pdb
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\bin\Debug\Common.pdb
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\bin\Debug\Data Access.pdb
