@@ -20,9 +20,9 @@ using System.Xml.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("SE_DatabaseModel", "RolePermissions", "Permissions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.Permission), "Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.Role))]
-[assembly: EdmRelationshipAttribute("SE_DatabaseModel", "FK_Products_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Common.User), "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.Product), true)]
 [assembly: EdmRelationshipAttribute("SE_DatabaseModel", "FK_Users_Towns", "Town", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Common.Town), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.User), true)]
 [assembly: EdmRelationshipAttribute("SE_DatabaseModel", "UserRoles", "Role", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.Role), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.User))]
+[assembly: EdmRelationshipAttribute("SE_DatabaseModel", "FK_Products_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Common.User), "Product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Common.Product), true)]
 
 #endregion
 
@@ -93,22 +93,6 @@ namespace Common
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Product> Products
-        {
-            get
-            {
-                if ((_Products == null))
-                {
-                    _Products = base.CreateObjectSet<Product>("Products");
-                }
-                return _Products;
-            }
-        }
-        private ObjectSet<Product> _Products;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Role> Roles
         {
             get
@@ -153,6 +137,22 @@ namespace Common
             }
         }
         private ObjectSet<User> _Users;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Product> Products
+        {
+            get
+            {
+                if ((_Products == null))
+                {
+                    _Products = base.CreateObjectSet<Product>("Products");
+                }
+                return _Products;
+            }
+        }
+        private ObjectSet<Product> _Products;
 
         #endregion
 
@@ -164,14 +164,6 @@ namespace Common
         public void AddToPermissions(Permission permission)
         {
             base.AddObject("Permissions", permission);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Products EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToProducts(Product product)
-        {
-            base.AddObject("Products", product);
         }
     
         /// <summary>
@@ -196,6 +188,14 @@ namespace Common
         public void AddToUsers(User user)
         {
             base.AddObject("Users", user);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Products EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToProducts(Product product)
+        {
+            base.AddObject("Products", product);
         }
 
         #endregion
@@ -354,14 +354,16 @@ namespace Common
         /// <summary>
         /// Create a new Product object.
         /// </summary>
+        /// <param name="productID">Initial value of the ProductID property.</param>
         /// <param name="product_Name">Initial value of the Product_Name property.</param>
         /// <param name="c_Product_Description">Initial value of the C_Product_Description property.</param>
         /// <param name="price">Initial value of the Price property.</param>
         /// <param name="image">Initial value of the Image property.</param>
         /// <param name="userName">Initial value of the UserName property.</param>
-        public static Product CreateProduct(global::System.String product_Name, global::System.String c_Product_Description, global::System.Decimal price, global::System.String image, global::System.String userName)
+        public static Product CreateProduct(global::System.Int32 productID, global::System.String product_Name, global::System.String c_Product_Description, global::System.Decimal price, global::System.String image, global::System.String userName)
         {
             Product product = new Product();
+            product.ProductID = productID;
             product.Product_Name = product_Name;
             product.C_Product_Description = c_Product_Description;
             product.Price = price;
@@ -379,6 +381,33 @@ namespace Common
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.Int32 ProductID
+        {
+            get
+            {
+                return _ProductID;
+            }
+            set
+            {
+                if (_ProductID != value)
+                {
+                    OnProductIDChanging(value);
+                    ReportPropertyChanging("ProductID");
+                    _ProductID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ProductID");
+                    OnProductIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ProductID;
+        partial void OnProductIDChanging(global::System.Int32 value);
+        partial void OnProductIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.String Product_Name
         {
             get
@@ -387,14 +416,11 @@ namespace Common
             }
             set
             {
-                if (_Product_Name != value)
-                {
-                    OnProduct_NameChanging(value);
-                    ReportPropertyChanging("Product_Name");
-                    _Product_Name = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Product_Name");
-                    OnProduct_NameChanged();
-                }
+                OnProduct_NameChanging(value);
+                ReportPropertyChanging("Product_Name");
+                _Product_Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Product_Name");
+                OnProduct_NameChanged();
             }
         }
         private global::System.String _Product_Name;
@@ -1003,28 +1029,6 @@ namespace Common
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SE_DatabaseModel", "FK_Products_Users", "Product")]
-        public EntityCollection<Product> Products
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Product>("SE_DatabaseModel.FK_Products_Users", "Product");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Product>("SE_DatabaseModel.FK_Products_Users", "Product", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SE_DatabaseModel", "FK_Users_Towns", "Town")]
         public Town Town
         {
@@ -1075,6 +1079,28 @@ namespace Common
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Role>("SE_DatabaseModel.UserRoles", "Role", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SE_DatabaseModel", "FK_Products_Users", "Product")]
+        public EntityCollection<Product> Products
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Product>("SE_DatabaseModel.FK_Products_Users", "Product");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Product>("SE_DatabaseModel.FK_Products_Users", "Product", value);
                 }
             }
         }
