@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Admin tools</h2>
+
+<p>
+
+    <p></p>
+    <fieldset>
+    <legend> <b> User Tools </b></legend>
+        @Html.ActionLink("All Users", "UserList", "Admin")
+    </fieldset>
+
+
+     <p></p>
+    <fieldset>
+    <legend> <b> Products Tools </b></legend>
+        @Html.ActionLink("Product List", "Index", "Product")
+    </fieldset>
+
+     <p></p>
+    <fieldset>
+    <legend> <b> Roles & Permissions Tools </b></legend>
+        @Html.ActionLink("List All Roles", "RoleList", "Admin")
+        <p></p>
+        @Html.ActionLink("Allocate Role", "AllocateRole", "Role")
+        <p></p>
+        @Html.ActionLink("Allocate Permission", "AllocatePermission", "Role")
+    </fieldset>
+
+
+
+
+
+
+</p>
+

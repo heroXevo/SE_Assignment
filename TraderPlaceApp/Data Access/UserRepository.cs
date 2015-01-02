@@ -71,6 +71,22 @@ namespace Data_Access
 
         }
 
+        public bool DoesUserNameExist(string UserName)
+        {
 
+            if (entities.Users.Count(user => user.UserName == UserName) == 0)
+                return false;
+            else
+                return true;
+        }
+
+        public bool isAuthenticated(string userName, string password)
+        {
+
+            if(entities.Users.Count(x => x.UserName == userName && x.Password == password) > 0)
+                return true; //this means that the userName and password are correct
+            else return false; //this means that the credentials are incorrect
+
+        }
     }
 }

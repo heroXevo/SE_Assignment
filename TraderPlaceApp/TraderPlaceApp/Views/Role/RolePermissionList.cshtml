@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TraderPlaceApp.Models.PermissionModel>
+
+@{
+    ViewBag.Title = "RolePermissionList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RolePermissionList</h2>
+
+<p>
+   
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            permissionID
+        </th>
+        <th>
+            permissionName
+        </th>
+        <th>
+            permissionDescription
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Delete Permission", "DeallocatePermission", new { permissionId = item.permissionID, RoleID = item.RoleID })
+        </td>
+        <td>
+            @item.permissionID
+        </td>
+        <td>
+            @item.permissionName
+        </td>
+        <td>
+            @item.permissionDescription
+        </td>
+       
+    </tr>
+}
+
+</table>
+

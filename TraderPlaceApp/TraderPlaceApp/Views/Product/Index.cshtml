@@ -8,7 +8,7 @@
 <h2>All Products</h2>
 
 <p>
-    @Html.ActionLink("AddProduct", "AddProduct", "Product")
+    
 </p>
 <table>
     <tr>
@@ -33,9 +33,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink("Edit", "EditProduct", "Product", new { prodID = item.ProductID }, null) |
-           @* @Html.ActionLink("Details", "Details", new { id=item.Product_Name }) |*@
-            @Html.ActionLink("Delete", "Delete", "Product" , new { prodID=item.ProductID }, null)
+            
         </td>
         <td>
             @item.Product_Name

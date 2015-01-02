@@ -22,6 +22,14 @@ namespace TraderPlaceApp.Controllers
             return View("Index", prodList);
         }
 
+        public ActionResult MyProducts()
+        {
+
+            List<Product> prodList = new ProductsBL().GetAllProductsByUsenName(User.Identity.Name).ToList();
+            return View("Myproducts", prodList);
+
+        }
+
         public ActionResult AddProduct()
         {
 
@@ -47,11 +55,11 @@ namespace TraderPlaceApp.Controllers
             p.Price = Convert.ToDecimal(np.price);            
             //p.Image = @"\Images\" + filename;
             p.Image = "~/Images/na.png";
-            p.UserName = "mattmif";
+            p.UserName = User.Identity.Name;
 
             new ProductsBL().AddProduct(p);
 
-            return RedirectToAction("Index", "Product");
+            return RedirectToAction("MyProducts", "Product");
 
         }
 

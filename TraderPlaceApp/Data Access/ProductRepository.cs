@@ -50,7 +50,15 @@ namespace Data_Access
 
         }
 
+        public IEnumerable<Product> GetProductByUser(string userName)
+        {
 
+            return (
+                from p in entities.Products
+                where p.UserName == userName
+                select p).AsEnumerable();
+
+        }
 
 
 

@@ -1,0 +1,45 @@
+﻿@model TraderPlaceApp.Models.RoleAllocationModel
+
+@{
+    ViewBag.Title = "AllocateRole";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AllocateRole</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>RoleAllocationModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserList)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.UserName, Model.UserList)
+            
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RoleList)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.roleID, Model.RoleList)
+           
+        </div>
+
+        
+
+        <p>
+            <input type="submit" value="Add Role" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

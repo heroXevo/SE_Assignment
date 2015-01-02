@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TraderPlaceApp.Models.RoleModel>
+
+@{
+    ViewBag.Title = "UserRoleList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UserRoleList</h2>
+
+<p>
+    
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            UserName
+        </th>
+        <th>
+            RoleID
+        </th>
+        <th>
+            RoleName
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Remove Role", "DeallocateRole", new { UserName = item.UserName, roleID = item.RoleID})
+        </td>
+        <td>
+            @item.UserName
+        </td>
+        <td>
+            @item.RoleID
+        </td>
+        <td>
+            @item.RoleName
+        </td>
+    </tr>
+}
+
+</table>
+

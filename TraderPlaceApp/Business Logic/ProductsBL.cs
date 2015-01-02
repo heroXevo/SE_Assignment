@@ -46,6 +46,12 @@ namespace Business_Logic
 
         }
 
+        public IEnumerable<Product> GetAllProductsByUsenName(string userName)
+        {
+
+            return new ProductRepository().GetProductByUser(userName);
+
+        }
 
     }
 }

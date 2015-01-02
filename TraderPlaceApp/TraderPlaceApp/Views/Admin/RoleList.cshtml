@@ -1,0 +1,49 @@
+﻿@model IEnumerable<TraderPlaceApp.Models.RoleModel>
+
+@{
+    ViewBag.Title = "RoleList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RoleList</h2>
+
+<p>
+    @Html.ActionLink("Add New Role", "CreateRole", "Admin")
+</p>
+<table>
+    <tr>
+        <th></th>
+        
+        
+        <th>
+            RoleName
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           
+        </td>
+       
+        <td>
+            @item.RoleName
+        </td>
+
+        <td>
+        
+        @Html.ActionLink("Edit", "editRole", "Admin", new {roleId = item.RoleID} , null) |
+        @Html.ActionLink("View Role Permissions" , "RolePermissionList", "Role", new { roleID = item.RoleID }, null) |
+        @if (item.RoleID != 1 && item.RoleID != 2 && item.RoleID != 3)
+        {
+            
+            @Html.ActionLink("Delete", "DeleteRole", new {roleID = item.RoleID})
+            
+        }
+
+        </td>
+    </tr>
+}
+
+</table>
+

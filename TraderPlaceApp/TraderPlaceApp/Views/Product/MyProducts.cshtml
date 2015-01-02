@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Common.Product>
+
+@{
+    ViewBag.Title = "MyProducts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MyProducts</h2>
+
+<p>
+    @Html.ActionLink("AddProduct", "AddProduct", "Product")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Product Name
+        </th>
+        <th>
+            Product Description
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Image
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "EditProduct", "Product", new { prodID = item.ProductID }, null) |
+           @* @Html.ActionLink("Details", "Details", new { id=item.Product_Name }) |*@
+            @Html.ActionLink("Delete", "Delete", "Product", new { prodID = item.ProductID }, null)
+        </td>
+        <td>
+            @item.Product_Name
+        </td>
+        <td>
+            @item.C_Product_Description
+        </td>
+        <td>
+            @String.Format("{0:F}", item.Price)
+        </td>
+        <td>
+            <img src="@Url.Content(item.Image)" alt="" heigth="100px" width="100px"/>
+        </td>
+       
+    </tr>
+}
+
+</table>
+
