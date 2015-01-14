@@ -107,7 +107,7 @@ namespace TraderPlaceApp.Controllers
                 { return Redirect("/admin/UserList?msg=usernametaken"); }
                 else
                 {
-                    u = new User();
+                    //u = new User();
                     
                     u.UserName = u.UserName;
                     u.Name = rm.Name;

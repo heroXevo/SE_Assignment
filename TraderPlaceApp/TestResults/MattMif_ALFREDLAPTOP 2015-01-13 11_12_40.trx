@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="55b05667-861a-4964-94bd-e256e92e34f6" name="MattMif@ALFREDLAPTOP 2015-01-13 11:12:40" runUser="AlfredLaptop\MattMif" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="6dca8501-e743-4bfc-bb8e-c0eba7e3f52f">
+    <Deployment runDeploymentRoot="MattMif_ALFREDLAPTOP 2015-01-13 11_12_40">
+      <DeploymentItem filename="C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Business Logic\bin\Debug\Business Logic.dll" />
+      <DeploymentItem filename="C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp\bin\TraderPlaceApp.dll" />
+      <DeploymentItem filename="C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Data Access\bin\Debug\Data Access.dll" />
+      <DeploymentItem filename="C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Common\bin\Debug\Common.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2015-01-13T11:12:40.5045877+01:00" queuing="2015-01-13T11:12:42.6382726+01:00" start="2015-01-13T11:12:42.8563430+01:00" finish="2015-01-13T11:12:51.7887878+01:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetRoleByNameTestWithShortChar" storage="c:\users\mattmif\desktop\se_assignment\traderplaceapp\traderplaceapp.tests\bin\debug\traderplaceapp.tests.dll" id="48ef3168-d4a5-aad6-d2d5-589a123f5ebd">
+      <Execution id="d147eba1-0c33-40e7-9228-b85428421b67" />
+      <TestMethod codeBase="C:/Users/MattMif/Desktop/SE_Assignment/TraderPlaceApp/TraderPlaceApp.Tests/bin/Debug/TraderPlaceApp.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TraderPlaceApp.Tests.Controllers.RoleControllerTest, TraderPlaceApp.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetRoleByNameTestWithShortChar" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="48ef3168-d4a5-aad6-d2d5-589a123f5ebd" executionId="d147eba1-0c33-40e7-9228-b85428421b67" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="d147eba1-0c33-40e7-9228-b85428421b67" testId="48ef3168-d4a5-aad6-d2d5-589a123f5ebd" testName="GetRoleByNameTestWithShortChar" computerName="ALFREDLAPTOP" duration="00:00:05.6254495" startTime="2015-01-13T11:12:42.9263669+01:00" endTime="2015-01-13T11:12:50.0842107+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d147eba1-0c33-40e7-9228-b85428421b67">
+    </UnitTestResult>
+  </Results>
+</TestRun>

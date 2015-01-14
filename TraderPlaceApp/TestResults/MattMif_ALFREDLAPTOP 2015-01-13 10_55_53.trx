@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="790b7dbe-6233-4e44-96a6-9f8dc35dccb6" name="MattMif@ALFREDLAPTOP 2015-01-13 10:55:53" runUser="AlfredLaptop\MattMif" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="81f38b33-1fa9-4c35-8c29-21af3e7e3322">
+    <Deployment runDeploymentRoot="MattMif_ALFREDLAPTOP 2015-01-13 10_55_53">
+      <DeploymentItem filename="C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Business Logic\bin\Debug\Business Logic.dll" />
+      <DeploymentItem filename="C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp\bin\TraderPlaceApp.dll" />
+      <DeploymentItem filename="C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Data Access\bin\Debug\Data Access.dll" />
+      <DeploymentItem filename="C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Common\bin\Debug\Common.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2015-01-13T10:55:53.1863077+01:00" queuing="2015-01-13T10:55:55.2829793+01:00" start="2015-01-13T10:55:55.4950468+01:00" finish="2015-01-13T10:56:07.5570206+01:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="UpdateRoleWithNull" storage="c:\users\mattmif\desktop\se_assignment\traderplaceapp\traderplaceapp.tests\bin\debug\traderplaceapp.tests.dll" id="a14cde04-63ac-9696-d432-e3e50e9e4dc3">
+      <Execution id="43d3d05f-4369-46da-b38a-6c4af623e9f7" />
+      <TestMethod codeBase="C:/Users/MattMif/Desktop/SE_Assignment/TraderPlaceApp/TraderPlaceApp.Tests/bin/Debug/TraderPlaceApp.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TraderPlaceApp.Tests.Controllers.RoleControllerTest, TraderPlaceApp.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateRoleWithNull" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="a14cde04-63ac-9696-d432-e3e50e9e4dc3" executionId="43d3d05f-4369-46da-b38a-6c4af623e9f7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="43d3d05f-4369-46da-b38a-6c4af623e9f7" testId="a14cde04-63ac-9696-d432-e3e50e9e4dc3" testName="UpdateRoleWithNull" computerName="ALFREDLAPTOP" duration="00:00:08.7596091" startTime="2015-01-13T10:55:55.6260878+01:00" endTime="2015-01-13T10:56:05.7934246+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="43d3d05f-4369-46da-b38a-6c4af623e9f7">
+    </UnitTestResult>
+  </Results>
+</TestRun>

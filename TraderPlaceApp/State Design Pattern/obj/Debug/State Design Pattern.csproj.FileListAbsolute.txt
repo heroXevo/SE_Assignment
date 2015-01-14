@@ -1,0 +1,4 @@
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\State Design Pattern\bin\Debug\State Design Pattern.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\State Design Pattern\bin\Debug\State Design Pattern.pdb
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\State Design Pattern\obj\Debug\State Design Pattern.dll
+C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\State Design Pattern\obj\Debug\State Design Pattern.pdb

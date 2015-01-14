@@ -40,6 +40,8 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
@@ -49,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\RoleControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
@@ -56,6 +59,18 @@
     <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business Logic\Business Logic.csproj">
+      <Project>{DFCC2E94-BAB7-418A-8296-9666250C588D}</Project>
+      <Name>Business Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{C363D90A-A0FA-40F8-A216-4B650A76CA90}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data Access\Data Access.csproj">
+      <Project>{A957021A-1473-4EC1-981E-F5BE8A2BD206}</Project>
+      <Name>Data Access</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TraderPlaceApp\TraderPlaceApp.csproj">
       <Project>{04492E52-2C50-4BA6-9943-966927AF7477}</Project>
       <Name>TraderPlaceApp</Name>
