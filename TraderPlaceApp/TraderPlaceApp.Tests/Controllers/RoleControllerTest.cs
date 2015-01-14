@@ -70,6 +70,40 @@ namespace TraderPlaceApp.Tests.Controllers
         }
 
         [TestMethod]
+        public void AddRoleTestWithFaults()
+        {
+
+            Role r = new Role();
+            r.Role_Name = "testRole";
+
+            allRoles.Add(r);
+            rs.CreateRoleWithfault(r);
+
+            AreListsEqual(allRoles, enitity.Roles.ToList());
+
+            List<Role> AllRoleList = new RoleRepository().GetRoles().ToList();
+
+
+        }
+
+        [TestMethod]
+        public void AddRoleTestWithFaultsChar()
+        {
+
+            Role r = new Role();
+            r.Role_Name = "testRole";
+
+            allRoles.Add(r);
+            rs.CreateRoleWithfaultChar(r);
+
+            AreListsEqual(allRoles, enitity.Roles.ToList());
+
+            List<Role> AllRoleList = new RoleRepository().GetRoles().ToList();
+
+
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(NullReferenceException))]
         public void AddRoleTestWithNull()
         {
@@ -191,6 +225,7 @@ namespace TraderPlaceApp.Tests.Controllers
 
 
         }
+
 
         [TestMethod]
         [ExpectedException(typeof(Exception))]
@@ -483,8 +518,6 @@ namespace TraderPlaceApp.Tests.Controllers
 
         }
 
-
-        //done till here 
         [TestMethod]
         public void GetRoleByNameTest()
         {
@@ -595,6 +628,17 @@ namespace TraderPlaceApp.Tests.Controllers
                 throw;
             }
 
+
+        }
+
+        [TestMethod]
+        public void GetRoleByNameTestWithFaults()
+        {
+
+            Role repRole = rs.GetRoleByNameWithFault("Same");
+            Role entRole = enitity.Roles.SingleOrDefault(x => x.Role_Name == "Same");
+
+            Assert.AreEqual(entRole.Role_Name, repRole.Role_Name, "Objects are not equal");
 
         }
 

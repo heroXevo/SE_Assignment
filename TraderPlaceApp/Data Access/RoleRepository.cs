@@ -261,5 +261,142 @@ namespace Data_Access
 
         }
 
+        public void CreateRoleWithfault(Role entry)
+        {
+
+            if (GetRoleByName(entry.Role_Name) == null)
+            {
+                if (entry.Role_Name == "" || entry == null)
+                {
+
+                    throw new NullReferenceException("Role Name is empty");
+
+                }
+                else
+                {
+                    if (entry.Role_Name.Length > 3 || entry.Role_Name.Length >= 20)
+                    {
+
+                        throw new Exception("Role Name is too long or too short");
+
+                    }
+                    else
+                    {
+
+                        if (Regex.IsMatch(entry.Role_Name, @"^[a-zA-Z]+$"))
+                        {
+
+                            entities.AddToRoles(entry);
+                            entities.SaveChanges();
+
+                        }
+                        else
+                        {
+
+                            throw new Exception("The name has some invalid characters");
+
+                        }
+
+
+                    }
+                }
+
+
+
+            }
+            else
+            {
+
+                throw new NullReferenceException("Role Name Already Exists");
+
+            }
+
+
+        }
+
+        public void CreateRoleWithfaultChar(Role entry)
+        {
+
+            if (GetRoleByName(entry.Role_Name) == null)
+            {
+                if (entry.Role_Name == "" || entry == null)
+                {
+
+                    throw new NullReferenceException("Role Name is empty");
+
+                }
+                else
+                {
+                    if (entry.Role_Name.Length < 3 || entry.Role_Name.Length >= 20)
+                    {
+
+                        throw new Exception("Role Name is too long or too short");
+
+                    }
+                    else
+                    {
+
+                        if (Regex.IsMatch(entry.Role_Name, @"^[a-z]+$"))
+                        {
+
+                            entities.AddToRoles(entry);
+                            entities.SaveChanges();
+
+                        }
+                        else
+                        {
+
+                            throw new Exception("The name has some invalid characters");
+
+                        }
+
+
+                    }
+                }
+
+
+
+            }
+            else
+            {
+
+                throw new NullReferenceException("Role Name Already Exists");
+
+            }
+
+
+        }
+
+        public Role GetRoleByNameWithFault(string name)
+        {
+            if (name != "" || name == null)
+            {
+                throw new ArgumentNullException("The name is empty");
+            }
+            else
+            {
+                if (name.Length < 3 || name.Length >= 20)
+                {
+
+                    throw new Exception("Role Name is too long or too short");
+
+                }
+                else
+                {
+
+                    if (Regex.IsMatch(name, @"^[a-zA-Z]+$"))
+                    {
+
+                        return entities.Roles.SingleOrDefault(x => x.Role_Name == name);
+                    }
+                    else
+                    {
+                        throw new Exception("The name has some invalid characters");
+                    }
+                }
+            }
+
+        }
+
     }
 }

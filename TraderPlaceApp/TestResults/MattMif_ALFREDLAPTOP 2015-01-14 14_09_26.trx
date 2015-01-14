@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="dd4f8379-4d4f-4723-8bca-b58047e8db13" name="MattMif@ALFREDLAPTOP 2015-01-14 14:09:26" runUser="AlfredLaptop\MattMif" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="eb324cee-7091-404a-844b-bd88f3a53d5d">
+    <Deployment runDeploymentRoot="MattMif_ALFREDLAPTOP 2015-01-14 14_09_26">
+      <DeploymentItem filename="C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Business Logic\bin\Debug\Business Logic.dll" />
+      <DeploymentItem filename="C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp\bin\TraderPlaceApp.dll" />
+      <DeploymentItem filename="C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Data Access\bin\Debug\Data Access.dll" />
+      <DeploymentItem filename="C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Common\bin\Debug\Common.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2015-01-14T14:09:26.7775879+01:00" queuing="2015-01-14T14:09:28.6772155+01:00" start="2015-01-14T14:09:28.8602732+01:00" finish="2015-01-14T14:10:26.1181860+01:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetRoleByNameTestWithFaults" storage="c:\users\mattmif\desktop\se_assignment\traderplaceapp\traderplaceapp.tests\bin\debug\traderplaceapp.tests.dll" id="95f42e0e-9a43-7488-6dd9-9e54f664e56c">
+      <Execution id="72016356-f02c-4920-b032-ef19b77209f9" />
+      <TestMethod codeBase="C:/Users/MattMif/Desktop/SE_Assignment/TraderPlaceApp/TraderPlaceApp.Tests/bin/Debug/TraderPlaceApp.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TraderPlaceApp.Tests.Controllers.RoleControllerTest, TraderPlaceApp.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetRoleByNameTestWithFaults" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="95f42e0e-9a43-7488-6dd9-9e54f664e56c" executionId="72016356-f02c-4920-b032-ef19b77209f9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="72016356-f02c-4920-b032-ef19b77209f9" testId="95f42e0e-9a43-7488-6dd9-9e54f664e56c" testName="GetRoleByNameTestWithFaults" computerName="ALFREDLAPTOP" duration="00:00:54.2830960" startTime="2015-01-14T14:09:28.9202944+01:00" endTime="2015-01-14T14:10:24.3926224+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="72016356-f02c-4920-b032-ef19b77209f9">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TraderPlaceApp.Tests.Controllers.RoleControllerTest.GetRoleByNameTestWithFaults threw exception: 
+System.ArgumentNullException: Value cannot be null.
+Parameter name: The name is empty</Message>
+          <StackTrace>    at Data_Access.RoleRepository.GetRoleByNameWithFault(String name) in C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\Data Access\RoleRepository.cs:line 374
+   at TraderPlaceApp.Tests.Controllers.RoleControllerTest.GetRoleByNameTestWithFaults() in C:\Users\MattMif\Desktop\SE_Assignment\TraderPlaceApp\TraderPlaceApp.Tests\Controllers\RoleControllerTest.cs:line 638
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
