@@ -181,7 +181,6 @@ namespace Data_Access
             }
         }
 
-
         public IEnumerable<Role> GetUserRoles(User u)
         {
             return u.Roles;
